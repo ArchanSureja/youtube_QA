@@ -34,6 +34,7 @@ if video_url:
                 st.warning("No relevant context found to answer this question.")
             else:
                 selected_chunks = [chunks[i]['text'] for i in relevant_chunks]
+                print(f"Selected {len(selected_chunks)} chunks out of {len(chunks)} for question: {question_text}")
                 context = " ".join(selected_chunks)
                 question_hash = hashlib.sha256(question_text.encode()).hexdigest()
                 context_hash = hashlib.sha256(context.encode()).hexdigest()
@@ -44,8 +45,8 @@ if video_url:
                     st.write(cached)
                 else:
                     with st.spinner("Generating answer..."):
-                        # api_key = get_api_key()
-                        api_key = st.secrets.get("API_KEY",get_api_key()) 
+                        # api_key = get_api_key()              
+                        api_key = get_api_key()
                         genai.configure(api_key=api_key)
                         gen_model = genai.GenerativeModel("gemini-2.0-flash")
                         answer = generate_answer(gen_model, context, question_text)
