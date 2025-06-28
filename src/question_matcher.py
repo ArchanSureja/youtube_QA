@@ -15,7 +15,7 @@ def match_question_to_chunks_semantic(question_data, chunks, model,):
     Returns:
     - list of integers: indices of relevant chunks
     """
-    top_k = len(chunks)//4 if len(chunks)>4 else len(chunks) 
+    top_k = len(chunks)//3 if len(chunks)>6 else len(chunks) 
     if not question_data or not chunks:
         return []
 

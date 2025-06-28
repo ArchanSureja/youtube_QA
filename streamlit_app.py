@@ -48,7 +48,7 @@ if video_url:
                         # api_key = get_api_key()              
                         api_key = get_api_key()
                         genai.configure(api_key=api_key)
-                        gen_model = genai.GenerativeModel("gemini-2.0-flash")
+                        gen_model = genai.GenerativeModel("gemini-2.5-flash")
                         answer = generate_answer(gen_model, context, question_text)
 
                     if answer:
