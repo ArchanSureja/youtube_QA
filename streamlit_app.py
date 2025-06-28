@@ -5,7 +5,7 @@ from src.chunking import perform_chunking
 from src.question_matcher import match_question_to_chunks_semantic
 import hashlib 
 from src.cache import get_cached_answer, set_cached_answer
-from src.utils import get_api_key
+# from src.utils import get_api_key 
 import google.generativeai as genai
 from src.answer_generator import generate_answer
 model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -44,8 +44,8 @@ if video_url:
                     st.write(cached)
                 else:
                     with st.spinner("Generating answer..."):
-                        api_key = get_api_key()
-                        genai.configure(api_key=api_key)
+                        # api_key = get_api_key() for local testing 
+                        genai.configure(api_key=st.secrets["API_KEY"])
                         gen_model = genai.GenerativeModel("gemini-2.0-flash")
                         answer = generate_answer(gen_model, context, question_text)
 

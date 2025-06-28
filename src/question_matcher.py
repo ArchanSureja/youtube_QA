@@ -2,7 +2,7 @@ from sentence_transformers import util
 from src.transcribe import transcribe_youtube_video 
 from src.chunking import perform_chunking 
 
-def match_question_to_chunks_semantic(question_data, chunks, model, top_k=5):
+def match_question_to_chunks_semantic(question_data, chunks, model, top_k=20):
     """
     Given one question and list of chunks, return top_k most relevant chunk indices.
     
