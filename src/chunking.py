@@ -2,7 +2,7 @@ import nltk
 from nltk.tokenize import sent_tokenize
 from src.transcribe import transcribe_youtube_video
 
-nltk.download("punkt", quiet=True)
+nltk.download("punkt_tab", quiet=True)
 
 def align_sentences_to_timestamps(transcript, merge_duration_window=300):
     """
